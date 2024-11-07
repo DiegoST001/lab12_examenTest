@@ -15,3 +15,18 @@ VALUES
 ('Sly', '2002-06-08', 1, 10);
 
 
+INSERT INTO visit (name, apellido, direccion)
+VALUES
+    ('Carlos', 'Pérez', 'Av. Siempre Viva 123'),
+    ('Ana', 'García', 'Calle Falsa 456'),
+    ('Luis', 'Mendoza', 'Jr. Los Cedros 789'),
+    ('Maria', 'López', 'Calle Primavera 101'),
+    ('Juan', 'Martínez', 'Av. Los Pinos 202'),
+    ('Sofia', 'Ramirez', 'Jr. Las Flores 303'),
+    ('Pedro', 'Torres', 'Av. El Sol 404'),
+    ('Lucia', 'Castro', 'Jr. Los Olivos 505'),
+    ('Miguel', 'Santos', 'Av. La Paz 606'),
+    ('Elena', 'Diaz', 'Calle Los Jazmines 707'),
+    ('Andrés', 'Rivera', 'Av. Libertad 808'),
+    ('Carla', 'Fernandez', 'Calle Las Rosas 909'),
+    ('Jorge', 'Guzmán', 'Av. Central 1010');
