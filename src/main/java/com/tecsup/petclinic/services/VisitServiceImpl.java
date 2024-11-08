@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VisitServiceImpl implements VisitService {
@@ -20,13 +21,26 @@ public class VisitServiceImpl implements VisitService {
 
     @Override
     public Visit update(Visit visit) {
-        return visitRepository.save(visit);
+        // Verificamos si la visita con el ID proporcionado existe
+        Optional<Visit> existingVisit = visitRepository.findById(visit.getId());
+        if (existingVisit.isPresent()) {
+            // Si existe, la actualizamos y la guardamos
+            return visitRepository.save(visit);
+        } else {
+            // Si no existe, lanzamos una excepción o retornamos un valor adecuado
+            throw new RuntimeException("Visit with ID " + visit.getId() + " not found");
+        }
     }
 
     @Override
     public void delete(Long id) {
+        // Verificamos si existe una visita con ese ID
         if (visitRepository.existsById(id)) {
+            // Si existe, la eliminamos
             visitRepository.deleteById(id);
+        } else {
+            // Si no existe, lanzamos una excepción o mostramos un mensaje
+            throw new RuntimeException("Visit with ID " + id + " not found");
         }
     }
 
